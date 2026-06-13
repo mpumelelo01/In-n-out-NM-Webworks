@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NM Webworks | Web Development, AI Chatbots & Business Automation — Johannesburg</title>
+  <meta name="description" content="NM Webworks is a Johannesburg-based digital agency building custom websites, AI chatbots, and business automation for South African SMEs. Get a free quote today." />
+  <meta property="og:title" content="NM Webworks | Web Development & Automation"/>
+  <meta property="og:description" content="NM Webworks builds digital products that drive real revenue. We specialize in custom websites, AI chatbots, and automation."/>
+  <meta property="og:image" content="https://placehold.co/1200x630/060B18/00D4FF?text=NM+Webworks"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #060B18;
+      --bg-nav: rgba(6, 11, 24, 0.85);
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.06);
+      --primary: #0A0F1E;
+      --accent: #00D4FF;
+      --secondary: #7B2FFF;
+      --text-main: #FFFFFF;
+      --text-muted: #A0AEC0;
+      --grad: linear-gradient(135deg, #00D4FF, #7B2FFF);
+      --grad-text: linear-gradient(135deg, #00D4FF, #7B2FFF);
+      --font-head: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 80px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: var(--font-head);
+      line-height: 1.2;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .text-gradient {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    
+    nav.scrolled {
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: var(--nav-height);
+    }
+    
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.5;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: var(--text-muted);
+      z-index: 1;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-10px) translateX(-50%); }
+      60% { transform: translateY(-5px) translateX(-50%); }
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 0;
+      background: rgba(10, 15, 30, 0.5);
+      text-align: center;
+    }
+
+    .trust-bar p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .logos-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      opacity: 0.6;
+      margin-bottom: 24px;
+    }
+    
+    .logos-grid svg {
+      height: 32px;
+      fill: currentColor;
+    }
+    
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .trust-stats span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 40px;
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: var(--grad);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    
+    .service-card.featured {
+      transform: scale(1.05);
+      background: rgba(10, 15, 30, 0.8);
+      border-color: rgba(123, 47, 255, 0.3);
+    }
+    
+    .service-card.featured:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+    
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(0, 212, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    
+    .service-card.featured .service-icon {
+      background: rgba(123, 47, 255, 0.1);
+      color: var(--secondary);
+    }
+    
+    .badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--grad);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .service-card p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    
+    .features-list {
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+    
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .features-list li svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    
+    .price {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    /* Process */
+    .process-timeline {
+      display: flex;
+      gap: 24px;
+      position: relative;
+    }
+
+    .process-line {
+      position: absolute;
+      top: 40px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      z-index: 0;
+    }
+    
+    .process-step {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--bg-dark);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: transparent;
+      background-image: var(--grad);
+      background-clip: text;
+      -webkit-background-clip: text;
+      transition: var(--transition);
+    }
+    
+    .process-step:hover .step-number {
+      border-color: var(--accent);
+      transform: scale(1.1);
+      background-color: rgba(0,212,255,0.1);
+      background-image: none;
+      color: var(--text-main);
+    }
+    
+    .process-step h4 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+    
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    
+    .portfolio-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      group:hover;
+    }
+    
+    .portfolio-img {
+      height: 240px;
+      background: linear-gradient(135deg, #1A2035, #0A0F1E);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-img::after {
+      content: 'View Project';
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 11, 24, 0.8);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .portfolio-card:hover .portfolio-img::after {
+      opacity: 1;
+    }
+    
+    .portfolio-info {
+      padding: 24px;
+    }
+    
+    .portfolio-info h4 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    
+    .portfolio-tags {
+      display: flex;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .tag {
+      background: rgba(255,255,255,0.05);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* Stats */
+    .stats-section {
+      background: linear-gradient(to right, rgba(10, 15, 30, 0.9), rgba(6, 11, 24, 1)), 
+                  linear-gradient(90deg, rgba(0,212,255,0.05) 0%, rgba(123,47,255,0.05) 100%);
+      border-top: 1px solid rgba(0,212,255,0.2);
+      border-bottom: 1px solid rgba(123,47,255,0.2);
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 3.5rem;
+      margin-bottom: 8px;
+    }
+    
+    .stat-item p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      min-height: 300px;
+    }
+    
+    .testimonial {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    
+    .testimonial.active {
+      opacity: 1;
+      pointer-events: auto;
+      position: relative;
+    }
+    
+    .quote-icon {
+      color: var(--accent);
+      margin-bottom: 24px;
+      opacity: 0.5;
+    }
+    
+    .testimonial p {
+      font-size: 1.5rem;
+      font-family: var(--font-head);
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+    
+    .client-info h5 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    
+    .client-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .stars {
+      color: #FFD700;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+    
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    /* Pricing */
+    .pricing-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.05);
+      border-radius: 40px;
+      padding: 4px;
+      max-width: fit-content;
+      margin: 0 auto 60px;
+    }
+    
+    .toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 32px;
+      border-radius: 36px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .toggle-btn.active {
+      background: var(--grad);
+      color: white;
+    }
+    
+    .pricing-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .pricing-content.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .pricing-card:hover {
+      border-color: rgba(0, 212, 255, 0.3);
+      transform: translateY(-8px);
+    }
+    
+    .pricing-card.featured {
+      background: rgba(10, 15, 30, 0.8);
+      border-color: rgba(0, 212, 255, 0.5);
+      transform: scale(1.05);
+    }
+    
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+    
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .pricing-price {
+      font-size: 2.5rem;
+      font-family: var(--font-head);
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: white;
+    }
+    
+    .pricing-desc {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      min-height: 48px;
+    }
+
+    .pricing-card ul {
+      margin-bottom: 40px;
+      flex-grow: 1;
+    }
+
+    .pricing-card li {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FAQ */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 0;
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: color 0.3s ease;
+    }
+    
+    .faq-question:hover {
+      color: var(--accent);
+    }
+    
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s ease;
+      color: var(--text-muted);
+    }
+    
+    .faq-item.active .faq-answer {
+      margin-top: 16px;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #080D1A 100%);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    
+    .contact-info h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+    
+    .contact-info p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    
+    .contact-form {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    
+    .form-control {
+      width: 100%;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 14px 16px;
+      border-radius: 8px;
+      color: white;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(0,0,0,0.4);
+    }
+    
+    .form-control.error {
+      border-color: #EF4444;
+    }
+    
+    .form-control.success {
+      border-color: #10B981;
+    }
+    
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A0AEC0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 16px;
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      background: #040812;
+      padding: 60px 0 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .social-links a {
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .process-timeline { flex-direction: column; gap: 40px; }
+      .process-line {
+        top: 0; bottom: 0; left: 40px; width: 2px; height: auto;
+      }
+      .process-step { display: flex; text-align: left; align-items: center; gap: 24px; }
+      .step-number { margin: 0; flex-shrink: 0; }
+      
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg-nav);
+        backdrop-filter: blur(12px);
+        padding: 24px;
+        clip-path: circle(0% at 100% 0);
+        transition: all 0.5s ease-out;
+        gap: 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .nav-links.active {
+        clip-path: circle(150% at 100% 0);
+      }
+      .mobile-menu-btn { display: block; }
+      
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-card.featured { transform: scale(1); }
+      .pricing-card.featured:hover { transform: translateY(-8px); }
+      
+      .footer-top { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">NM Webworks<span class="logo-dot">.</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#portfolio">Our Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn btn-primary" style="padding: 10px 20px;">Get a Free Quote</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container relative z-10">
+      <div class="hero-content fade-up mx-auto text-center" style="margin-left: auto; margin-right: auto;">
+        <h1>We Build Digital Products That <span class="text-gradient">Drive Real Revenue</span></h1>
+        <p>Web Development · AI Chatbots · Business Automation — Built for South African Businesses Ready to Grow.</p>
+        <div class="hero-btns mt-8">
+          <a href="#contact" class="btn btn-primary">Start Your Project</a>
+          <a href="#portfolio" class="btn btn-outline">See Our Work</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar fade-up">
+    <div class="container">
+      <p>Trusted by businesses across South Africa</p>
+      <div class="logos-grid">
+        <svg viewBox="0 0 100 30" width="100" height="30"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+        <svg viewBox="0 0 100 30" width="100" height="30"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+        <svg viewBox="0 0 100 30" width="100" height="30"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+        <svg viewBox="0 0 100 30" width="100" height="30"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+        <svg viewBox="0 0 100 30" width="100" height="30" class="hidden md:block"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+        <svg viewBox="0 0 100 30" width="100" height="30" class="hidden lg:block"><rect width="100" height="30" rx="4" fill="rgba(255,255,255,0.1)"/><text x="50" y="20" fill="#fff" font-size="12" text-anchor="middle" opacity="0.5">LOGO</text></svg>
+      </div>
+      <div class="trust-stats">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> 100% Client Satisfaction</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> On-Time Delivery</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> SA-Based Team</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title fade-up">What We Build</h2>
+      <div class="services-grid fade-up">
+        
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <h3>Web & App Development</h3>
+          <p>Custom websites and web applications built to convert visitors into clients. Fast, beautiful, and built to scale.</p>
+          <ul class="features-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Website Design</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> E-commerce Stores</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Web Applications & Portals</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile-Responsive Design</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> SEO-Optimised Structure</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ongoing Maintenance</li>
+          </ul>
+          <div class="price">From R12,000</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card featured">
+          <div class="badge">Most Popular</div>
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3>AI Chatbot Development</h3>
+          <p>Deploy intelligent AI chatbots on your website or WhatsApp that handle queries, capture leads, and book appointments — 24/7.</p>
+          <ul class="features-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Website Chat Widget</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> WhatsApp AI Bot</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Lead Capture Automation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Knowledge Base</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> CRM Integration</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly Management</li>
+          </ul>
+          <div class="price">From R15,000</div>
+          <a href="#contact" class="btn btn-primary" style="width: 100%;">Learn More</a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <h3>Business Automation</h3>
+          <p>Stop doing things manually. We automate your sales, operations, and reporting so your team can focus on what matters.</p>
+          <ul class="features-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Workflow Automation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> CRM & Sales Automation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> WhatsApp & Email Flows</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Invoice & Quote Automation</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> AI-Powered Reporting</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> System Integrations</li>
+          </ul>
+          <div class="price">From R15,000</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%;">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" id="process" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <h2 class="section-title fade-up">How It Works</h2>
+      <div class="process-timeline fade-up">
+        <div class="process-line"></div>
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Discovery</h4>
+          <p>We learn your business, goals, and what success looks like</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Design</h4>
+          <p>We design the solution and get your approval before building anything</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Build</h4>
+          <p>Our team builds, tests, and refines until it's perfect</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Launch & Grow</h4>
+          <p>We launch, hand over, and stay on as your long-term tech partner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <h2 class="section-title fade-up">Our Work</h2>
+      <div class="portfolio-grid fade-up">
+        
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <h3 style="opacity: 0.3; font-size: 2rem;">APEX</h3>
+          </div>
+          <div class="portfolio-info">
+            <h4>Apex Property Group</h4>
+            <div class="portfolio-tags">
+              <span class="tag">Web Design</span>
+              <span class="tag">SEO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #0A1E13, #060B18);">
+            <h3 style="opacity: 0.3; font-size: 2rem; color: #25D366;">MedCore</h3>
+          </div>
+          <div class="portfolio-info">
+            <h4>MedCore Clinic</h4>
+            <div class="portfolio-tags">
+              <span class="tag">Web App</span>
+              <span class="tag">AI Chatbot</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="portfolio-img" style="background: linear-gradient(135deg, #1E0A1A, #060B18);">
+            <h3 style="opacity: 0.3; font-size: 2rem; color: #7B2FFF;">FastFlow</h3>
+          </div>
+          <div class="portfolio-info">
+            <h4>FastFlow Logistics</h4>
+            <div class="portfolio-tags">
+              <span class="tag">Automation</span>
+              <span class="tag">Web App</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="text-center mt-8 text-muted fade-up" style="text-align: center; margin-top: 40px; color: var(--text-muted);">More projects available on request</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-up">
+          <h3 class="text-gradient"><span class="counter" data-target="50">0</span>+</h3>
+          <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay: 0.1s">
+          <h3 class="text-gradient">R<span class="counter" data-target="2">0</span>M+</h3>
+          <p>Revenue Generated</p>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay: 0.2s">
+          <h3 class="text-gradient"><span class="counter" data-target="98">0</span>%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-item fade-up" style="transition-delay: 0.3s">
+          <h3 class="text-gradient"><span class="counter" data-target="24">0</span>hr</h3>
+          <p>Average Response Time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title fade-up">What Our Clients Say</h2>
+      
+      <div class="testimonials fade-up">
+        
+        <div class="testimonial active">
+          <svg class="quote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C5.5 18 3 18 3 18zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C19.5 18 17 18 17 18z"></path></svg>
+          <p>"NM Webworks built our property portal in 3 weeks and our leads doubled in the first month. Exceptional team."</p>
+          <div class="client-info">
+            <h5>Sipho M.</h5>
+            <p>Apex Property Group</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <svg class="quote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C5.5 18 3 18 3 18zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C19.5 18 17 18 17 18z"></path></svg>
+          <p>"The AI chatbot they built for our clinic handles 80% of our appointment bookings automatically. Game changer."</p>
+          <div class="client-info">
+            <h5>Dr. Priya N.</h5>
+            <p>MedCore Clinic</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <svg class="quote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C5.5 18 3 18 3 18zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.714C19.5 18 17 18 17 18z"></path></svg>
+          <p>"Our invoicing and CRM used to take 3 hours a day. Now it's fully automated. Best investment we've made."</p>
+          <div class="client-info">
+            <h5>Thabo K.</h5>
+            <p>FastFlow Logistics</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="carousel-dots">
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div class="text-center fade-up" style="text-align: center;">
+        <h2 class="section-title" style="margin-bottom: 16px;">Transparent Pricing</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px;">No hidden fees. No surprises. Just results.</p>
+      </div>
+
+      <div class="pricing-toggle fade-up">
+        <button class="toggle-btn active" data-target="price-web">Websites</button>
+        <button class="toggle-btn" data-target="price-bot">Chatbots</button>
+        <button class="toggle-btn" data-target="price-auto">Automation</button>
+      </div>
+
+      <!-- Websites -->
+      <div class="pricing-content active fade-up" id="price-web">
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Starter</h3>
+            <div class="pricing-price">R12,000</div>
+            <p class="pricing-desc">Perfect for small businesses establishing their online presence.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 5-page business website</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile responsive</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic SEO</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 round of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="badge">Most Popular</div>
+            <h3>Professional</h3>
+            <div class="pricing-price">R28,000</div>
+            <p class="pricing-desc">Comprehensive solution for growing businesses needing more features.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 10-page site</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced SEO</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> CMS Integration</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Contact forms</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2 rounds of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Custom</h3>
+            <div class="pricing-price" style="font-size: 2rem;">Let's Talk</div>
+            <p class="pricing-desc">Bespoke web apps, portals, or full e-commerce platforms.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Web Apps / Portals</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> E-commerce</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom features</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> API Integrations</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chatbots -->
+      <div class="pricing-content fade-up" id="price-bot">
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Basic Bot</h3>
+            <div class="pricing-price">R15,000</div>
+            <p class="pricing-desc">24/7 intelligent assistant for your website right out of the box.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Website chatbot widget</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> FAQ handling</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Lead capture</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Email notifications</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="badge">Most Popular</div>
+            <h3>WhatsApp Bot</h3>
+            <div class="pricing-price">R25,000</div>
+            <p class="pricing-desc">Engage customers where they already are with a smart WhatsApp bot.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Full WhatsApp AI bot</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> CRM integration</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Conversation flows</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Knowledge base training</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Enterprise Bot</h3>
+            <div class="pricing-price">R60k+</div>
+            <p class="pricing-desc">Complex, multi-channel AI agents custom trained on your data.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-channel deployment</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom AI training</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Full internal integrations</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated support</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation -->
+      <div class="pricing-content fade-up" id="price-auto">
+         <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Starter</h3>
+            <div class="pricing-price">R15,000</div>
+            <p class="pricing-desc">Eliminate the most repetitive task in your business today.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 workflow automated</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 1 system integration</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Setup + Training</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card featured">
+             <div class="badge">Most Popular</div>
+            <h3>Business</h3>
+            <div class="pricing-price">R40,000</div>
+            <p class="pricing-desc">Connect your tools and automate your core operations.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 5 workflows</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-system integration</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Reporting dashboard</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary w-full" style="width: 100%;">Get Started</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Full Automation</h3>
+            <div class="pricing-price">R80k+</div>
+            <p class="pricing-desc">End-to-end digital transformation for your entire business.</p>
+            <ul>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> End-to-end automation</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom coded scripts</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ongoing optimization support</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline w-full" style="width: 100%;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-note fade-up">All plans include: 50% upfront, 50% on delivery. Maintenance retainers available.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title fade-up">Frequently Asked Questions</h2>
+      <div class="faq-container fade-up">
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does a website take to build?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Most websites take 2–4 weeks depending on complexity. We always give you a clear timeline upfront.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you work with businesses outside Johannesburg?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes — we work with clients across South Africa and internationally. All our work is done remotely.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What do you need from me to get started?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>A brief about your business, your goals, examples of sites you like, and your logo/brand assets. We guide you through everything.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I update my website myself after it's built?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We build on systems you can manage yourself, and we provide training and documentation on delivery.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you offer payment plans?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We require 50% upfront and 50% on delivery. For larger projects we can discuss milestone-based payments.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What makes NM Webworks different from other agencies?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </div>
+          <div class="faq-answer">
+            <p>We're a lean, senior-level team — you deal directly with the people building your product, not account managers. We focus on results, not just deliverables.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info fade-up">
+          <h2>Ready to <span class="text-gradient">Build Something Great?</span></h2>
+          <p>Book a free 30-minute discovery call. No pressure. No obligation.</p>
+          
+          <div class="contact-details">
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <strong style="color: white; display: block;">Email Us</strong>
+                <a href="mailto:hello@nmwebworks.co.za">hello@nmwebworks.co.za</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="contact-icon" style="color: #25D366; background: rgba(37, 211, 102, 0.1);">
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <div>
+                <strong style="color: white; display: block;">WhatsApp</strong>
+                <a href="https://wa.me/27000000000">+27 (0) 000 000 0000</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <strong style="color: white; display: block;">Location</strong>
+                <span>Johannesburg, South Africa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form fade-up" style="transition-delay: 0.2s">
+          <form id="lead-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" class="form-control" placeholder="+27 82 000 0000">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" class="form-control">
+                <option value="web">Web Development</option>
+                <option value="bot">AI Chatbot</option>
+                <option value="auto">Business Automation</option>
+                <option value="not_sure">Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Project Budget</label>
+              <select id="budget" class="form-control">
+                <option value="u15">Under R15k</option>
+                <option value="15-50">R15k – R50k</option>
+                <option value="50-150">R50k – R150k</option>
+                <option value="150+">R150k+</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="logo">NM Webworks<span class="logo-dot">.</span></div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#portfolio">Our Work</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 NM Webworks (Pty) Ltd. All rights reserved. | Johannesburg, South Africa
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/27000000000" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </a>
+
+  <script>
+    // 1. Navigation Scroll Effect & Mobile Menu
+    const navbar = document.getElementById('navbar');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // 2. Intersection Observer for Fade-Up Animations & Counters
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const counters = document.querySelectorAll('.counter');
+    let hasCounted = false;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Trigger counters when stats section is visible
+          if (!hasCounted && entry.target.classList.contains('stats-grid') || entry.target.closest('#stats')) {
+             hasCounted = true;
+             startCounters();
+          }
+        }
+      });
+    }, observerOptions);
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // 3. Counter Animation
+    function startCounters() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000; // ms
+        const increment = target / (duration / 16); 
+        let current = 0;
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.innerText = Math.ceil(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      });
+    }
+
+    // 4. Testimonials Carousel
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dots = document.querySelectorAll('.dot');
+    let currentTestimonial = 0;
+    
+    function showTestimonial(index) {
+      testimonials.forEach(t => t.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      
+      testimonials[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentTestimonial = index;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showTestimonial(index));
+    });
+
+    setInterval(() => {
+      let next = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(next);
+    }, 4000);
+
+    // 5. Pricing Toggle
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const pricingContents = document.querySelectorAll('.pricing-content');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        pricingContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active to clicked
+        btn.classList.add('active');
+        document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+      });
+    });
+
+    // 6. FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close all
+        faqItems.forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        
+        // Open if wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+          const answer = item.querySelector('.faq-answer');
+          answer.style.maxHeight = answer.scrollHeight + 50 + "px"; // generous padding
+        }
+      });
+    });
+
+    // 7. Form Validation
+    const form = document.getElementById('lead-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      let isValid = true;
+      const requiredInputs = form.querySelectorAll('input[required], textarea[required]');
+      
+      requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.classList.add('error');
+          input.classList.remove('success');
+        } else {
+          input.classList.remove('error');
+          input.classList.add('success');
+        }
+      });
+
+      if (isValid) {
+        const btn = form.querySelector('button[type="submit"]');
+        btn.innerHTML = 'Sending...';
+        btn.style.opacity = '0.7';
+        // Simulate send
+        setTimeout(() => {
+          btn.innerHTML = 'Message Sent! ✓';
+          btn.style.background = '#10B981';
+          btn.style.color = 'white';
+          form.reset();
+          requiredInputs.forEach(i => i.classList.remove('success', 'error'));
+          
+          setTimeout(() => {
+            btn.innerHTML = 'Send Message';
+            btn.style.background = '';
+            btn.style.opacity = '1';
+          }, 3000);
+        }, 1500);
+      }
+    });
+
+    // Form inputs blur clear error
+    form.querySelectorAll('.form-control').forEach(input => {
+      input.addEventListener('input', () => {
+        if(input.value.trim()) {
+          input.classList.remove('error');
+          if(input.hasAttribute('required')) input.classList.add('success');
+        }
+      });
+    });
+
+    // 8. Animated Background Canvas (Particles/Grid)
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let w, h, particles = [];
+    
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.size = Math.random() * 2 + 0.5;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.alpha = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+      }
+      draw() {
+        ctx.fillStyle = `rgba(0, 212, 255, ${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+    
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      
+      // Draw connecting lines
+      for(let i=0; i<particles.length; i++) {
+        for(let j=i; j<particles.length; j++) {
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx*dx + dy*dy);
+          
+          if(dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(123, 47, 255, ${0.1 * (1 - dist/120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+  </script>
+</body>
+</html>
